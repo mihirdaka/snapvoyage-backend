@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "project1-433816",
+  "private_key_id": "82244318ee01ffae2f8fca1b14133774961859b8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDK40B2tV+0M0iA\nvxHq3HxvGRdhJixgLn9z949RwDV8EWUvNpZpdCd0PEy9lC7ViEfPlHTqqMB8JQ/n\n4s5aRCE/T7ygU/WTnMUOL1TimV3/ve0+XfVwkZySD5XHAiJLl27Z05G6D4QG5k0e\nEi4/Bc49h9uzPOWgv3U8f2oEIbYGc97A8jA+nbwQTJcToGCyzj5rm54efChKsSP/\nFjjmzXK6N+nevqU5ZrIkH+mhtbaLBUqqzyIqFG+bDypMmd5f90E501VHPniOXY27\neQNftwTX2dA3Dtxr4FSw/SSnRwDwygPQl2BNJEYsbx5db158+8kS3lMoLOObGBDk\n/7x8tnUvAgMBAAECggEADC8c8j2oXpPmPdkVOq0wCdbDaSs+M5Tg3lywR8c+G9Iw\nz4BWaxHPKfNSSayqKielGSmzFcG5mxr5e0IxhNYEYYV1cFlqbSMKg6epaaXh/iQ9\nQmdCs8mca5PlBkHLpnRH82vgG5p0u5qKaHMy2y6kxcKXACR4xv0IdAm6Z6VQnzV4\n/AGgLezaX9z3GP3HTS1W5GZjJ+PDxahW8hpliHy30A3rBW4R2+c0YY8ZiuVBxE/W\nnunD/INUaP5Y73/i7ye5cMy+vb1XWADxypBgujllxE8/godpZruLsrMfDBrQT1+8\ncC5/4FcJTlJb1k0nBTAXy2uqX+eZD5D2rp48QQOPoQKBgQDmMUepL2usMLycTnhO\nKBhX7WLQsiT8BPzrTl60R5XWbdGSDHYMyqBRjkcSR6BW6JHVKK0f1fVtc3sgbh5I\nH4uUqA9oC3/ynBjZDh0ldF65e7TRtGwZHSuVWVa3z59DetIZiuF5VuYZw/FkGKi2\nzW8fncDH92mkNLBXckkdLx7CYQKBgQDhok0QgQD1h11PxJ/tChfcbY1RrpM7ZoMh\nnaffSkIBPO4P8wwx3t0mmXv9DyNSYVwKXKKLtntneYGH+6KAYxlfRi1AnB3wkPKq\nAK2DPt/16LhY5IWCi49FzT0AsHsV1s4pW+AqQWijhbzouhEhfnjAq9+WjKQydvvU\ngh1yvLWBjwKBgQC3UcegFQPKvYV3dYaZt5SrcYGgcj7B9bb2LhN9vwS1IAAmL4ZT\n6YqDaKtxA1nN3KlG+H3nPJ2X7L/Bs/Cpv3WJjc23LnFW5LllIrhTe7l0PfBikS0F\nUxXCesN03wQW2Vk4vkGSQII/Qqya6ohyDGjS5O8CUSbwfoVxHrLbaws0AQKBgEb+\nt3ri7HdVEWJA/wUpsNpVyiqSYJdHKSmRnrmeduhG0K1KD2M9uZ4kmyPD+Jw6MCi+\nfxKw52FmlQBBiB8Xj2sv/JsgxDbmlMQzFGWAih2pDSBDP1MVMI6JBpHJ9eCoRxQy\naXVCQXd6ZDdiHHPKhJozOlX3iM6sK47xJeztPbs3AoGBAK4n54WRpyOi4scRpKsx\nDYAdMhHN4n9aYkSpM8UsTHfVjC8SDUJa+zqN/WTD5eBvLX+Y1GrrluZ82u8glrZk\nKr1S2vnmMcjMFihoaMowYzqX5rmjrsz2lLyz++I8BTZIcXOg50gxqFLieJsiUFi0\nJpsfi2a7Ivz5AqiYUWNza4aI\n-----END PRIVATE KEY-----\n",
+  "client_email": "snapvoyage@project1-433816.iam.gserviceaccount.com",
+  "client_id": "110297802237227537590",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/snapvoyage%40project1-433816.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

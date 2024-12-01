@@ -2,6 +2,8 @@ const axios = require('axios');
 const { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } = require('../config');
 const vision = require('@google-cloud/vision');
 
+const visionController = require('./visionController');
+const openaiController = require('./openaiController');
 // Initialize the Google Vision client
 const visionClient = new vision.ImageAnnotatorClient();
 // Redirect user to Pinterest login
@@ -66,8 +68,9 @@ exports.fetchUserBoardsAndPins = async (req, res) => {
         allPins = await getAllPins(accessToken);
     const groupedPins = await groupPinsByLabels(allPins);
   
-    console.log('Grouped Pins:', groupedPins);
-        return res.json({ "status": true, "data": allPins, });
+        console.log('Grouped Pins:', groupedPins);
+        const summarizeEvents = await openaiController.createTimeline(groupedPins);
+        return res.json({ "status": true, "data": (summarizeEvents)});
 
     } catch (error) {
         console.error('Error in fetching data:', error.message);
@@ -88,8 +91,17 @@ async function getAllPins(accessToken) {
                 Accept: 'application/json',
             },
         });
-
-        return response.data.items;
+            // filter and get only created_at, description, media.images.1200x, id, title
+            const pins = response.data.items.map(pin => {
+                return {
+                    created_at: pin.created_at,
+                    description: pin.description,
+                    image: pin.media.images['1200x'].url,
+                    id: pin.id,
+                    title: pin.title,
+                };
+            });
+        return pins;
     } catch (error) {
         console.error('Error fetching pins:', error.response?.data || error.message);
         return { error: 'Failed to fetch pins' };
@@ -166,18 +178,19 @@ async function getBoardPins(boardId, accessToken) {
     const groupedPins = {};
   
     for (let pin of pins) {
-      const imageUrl = pin.media.images['600x'].url;
-      console.log(imageUrl);
-      const labels = await analyzeImage(imageUrl);
-  
+      const imageUrl = pin.image;
+    //   console.log(imageUrl);
+      const labels = await visionController.processImage(imageUrl);
+      pin.labels = labels.labels;
+        // console.log(labels);
       // Group pins by labels
-      for (let label of labels) {
-        if (!groupedPins[label]) {
-          groupedPins[label] = [];
-        }
-        groupedPins[label].push(pin);
-      }
+    //   for (let label of labels.labels) {
+    //     if (!groupedPins[label]) {
+    //       groupedPins[label] = [];
+    //     }
+        // groupedPins[label].push(pin);
+    //   }
     }
   
-    return groupedPins;
+    return pins;
   }
