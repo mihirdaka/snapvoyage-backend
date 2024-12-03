@@ -42,12 +42,12 @@ exports.pinterestCallback = async (req, res) => {
         res.cookie('pinterestToken', accessToken, {
             httpOnly: true,  // Prevent JavaScript access
             // secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-            sameSite: 'Strict', // Prevent cross-site cookie issues
+            sameSite: 'none', // Prevent cross-site cookie issues
             maxAge: 3600000, // 1 hour expiration
         });
 
         // Redirect the user to the dashboard
-        res.redirect('http://localhost:3000/dashboard');
+        res.redirect('http://localhost:3000/dashboard?token=' + accessToken);
 
     } catch (error) {
         // console.log('Error fetching access token:', error);
@@ -57,9 +57,10 @@ exports.pinterestCallback = async (req, res) => {
 };
 // Example usage
 exports.fetchUserBoardsAndPins = async (req, res) => {
-    const accessToken = req.cookies.pinterestToken;
-    let allPins = [];
+    const accessToken = req.headers.authorization;
 
+    let allPins = [];
+    console.log('accessToken:', accessToken);
     if (!accessToken) {
         return res.status(401).json({ error: 'Unauthorized: Missing access token' });
     }
@@ -101,6 +102,7 @@ async function getAllPins(accessToken) {
                     title: pin.title,
                 };
             });
+            console.log(pins);
         return pins;
     } catch (error) {
         console.error('Error fetching pins:', error.response?.data || error.message);
@@ -176,7 +178,7 @@ async function getBoardPins(boardId, accessToken) {
 
   async function groupPinsByLabels(pins) {
     const groupedPins = {};
-  
+    
     for (let pin of pins) {
       const imageUrl = pin.image;
     //   console.log(imageUrl);
